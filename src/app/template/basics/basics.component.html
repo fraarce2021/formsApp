@@ -1,0 +1,50 @@
+<h2>Template: Basics</h2>
+<hr>
+
+<div class="row">
+    <div class="col">
+        <form (ngSubmit)="save(myForm)" #myForm="ngForm" autocomplete="off">
+
+            <!-- Product Info -->
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Product</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="Product Name" ngModel name="product" required>
+                    <span class="form-text text-danger">Minimum 3 letters required</span>
+                </div>
+            </div>
+            <!-- Price Info -->
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Price</label>
+                <div class="col-sm-9">
+                    <input type="number" class="form-control" placeholder="Product Price" ngModel name="price" required>
+                </div>
+            </div>
+            <!-- Quantity Info -->
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Quantity</label>
+                <div class="col-sm-9">
+                    <input type="number" class="form-control" placeholder="Product Quantity" ngModel name="quantity" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <button type="submit" class="btn btn-primary float-end">
+                  Save Product
+                </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <span>Valid</span>
+        <pre>{{myForm.valid}}</pre>
+
+        <span>Value</span>
+        <pre>{{myForm.value | json}}</pre>
+    </div>
+</div>
