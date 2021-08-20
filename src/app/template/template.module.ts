@@ -6,6 +6,7 @@ import { TemplateRoutingModule } from './template-routing.module';
 import { DynamicComponent } from './dynamic/dynamic.component';
 import { BasicsComponent } from './basics/basics.component';
 import { SwitchesComponent } from './switches/switches.component';
+import { CustomMinDirective } from './directives/custom-min.directive';
 
 
 
@@ -13,12 +14,13 @@ import { SwitchesComponent } from './switches/switches.component';
   declarations: [
     DynamicComponent,
     BasicsComponent,
-    SwitchesComponent
+    SwitchesComponent,
+    CustomMinDirective
   ],
   imports: [
     CommonModule,
     TemplateRoutingModule,
     FormsModule
-  ]
+    ]
 })
 export class TemplateModule { }
