@@ -1,1 +1,46 @@
-<p>dynamic works!</p>
+<h2>Template: <small>Dinamyc</small></h2>
+<hr>
+
+<form (ngSubmit)="save()" autocomplete="off" #myForm="ngForm">
+    <!-- Name -->
+    <div class="mb-3 row">
+        <label class="col-sm-3 col">Name</label>
+        <div class="col-sm-9">
+            <input [ngModel]="person.name" required name="name" type="text" placeholder="Full Name" class="form-control">
+            <span *ngIf="myForm.controls.name?.errors && myForm.controls.name?.touched" class="form-text text-danger">Name is required</span>
+        </div>
+    </div>
+
+    <!-- Add Favorite -->
+    <div class="mb-3 row">
+        <label class="col-sm-3 col">Add</label>
+        <div class="col-sm-9">
+            <div class="input-group">
+                <input [(ngModel)]="newFavorite" name="newFavorite" (keyup.enter)="addFavorite()" type="text" placeholder="Add Favorite" class="form-control">
+                <button (click)="addFavorite()" class="btn btn-outline-primary" type="button">Add</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- List Favorites -->
+    <div class="mb-3 row">
+        <label class="col-sm-3 col">Favorites</label>
+        <div class="col-sm-9">
+            <div *ngFor="let favorite of person?.favorites; let i = index;" class="input-group  mb-1">
+                <input [(ngModel)]="favorite.name" name="favorite_{{i}}" required class="form-control">
+                <button (click)="delete(i)" class="btn btn-outline-danger" type="button">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <button [disabled]="myForm.invalid" type="button" (click)="save()" class="btn btn-primary float-end">Save</button>
+        </div>
+    </div>
+</form>
+
+
+<span>Person</span>
+<pre>{{person | json}}</pre>

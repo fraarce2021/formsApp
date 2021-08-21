@@ -11,6 +11,12 @@ export class BasicsComponent  {
 
   @ViewChild('myForm') myForm!: NgForm;
 
+  initForm = {
+    product: '',
+    price: 0,
+    quantity: 0
+  }
+
   validName():boolean{
     return this.myForm?.controls.product?.invalid && this.myForm?.controls.product?.touched;
   }
@@ -21,7 +27,13 @@ export class BasicsComponent  {
 
   // save(form: NgForm){
   save(){
-    console.log(this.myForm)
+    // console.log(this.myForm)
+
+    console.log('Post Succesly');
+    this.myForm.resetForm({
+      price: 0,
+      quantity: 0
+    });
   }
 
 }
