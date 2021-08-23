@@ -5,6 +5,7 @@ import { ReactiveRoutingModule } from './reactive-routing.module';
 import { BasicsComponent } from './basics/basics.component';
 import { SwitchesComponent } from './switches/switches.component';
 import { DynamicComponent } from './dynamic/dynamic.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { DynamicComponent } from './dynamic/dynamic.component';
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     ReactiveRoutingModule
   ]
 })
